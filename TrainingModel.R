@@ -44,3 +44,13 @@ set.seed(123)
 # Perform bootstrapping for the entire dataset
 bootstrap_results <- boot(body_data, statistic = function(data, i) mean(data[i, "BodyFat"]), R = 1000)
 bootstrap_results
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Perform k-fold cross-validation (example: linear regression)
+library(caret)
+control <- trainControl(method = "cv", number = 10)
+cv_model <- train(BodyFat ~ ., data = body_data, method = "lm", trControl = control)
+summary(cv_model)
+print(cv_model)
