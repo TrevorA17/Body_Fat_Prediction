@@ -37,3 +37,10 @@ testing_data <- subset(body_data, split == FALSE)
 
 print(dim(training_data))
 print(dim(testing_data))
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Perform bootstrapping for the entire dataset
+bootstrap_results <- boot(body_data, statistic = function(data, i) mean(data[i, "BodyFat"]), R = 1000)
+bootstrap_results
