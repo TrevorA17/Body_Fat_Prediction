@@ -34,5 +34,17 @@ means
 medians <- sapply(body_data[, c("Density", "Age", "Weight", "Height", "Neck", "Chest", "Abdomen", "Hip", "Thigh", "Knee", "Ankle", "Biceps", "Forearm", "Wrist", "BodyFat")], median)
 medians
 
+# Standard deviation for numeric variables
+sds <- sapply(body_data[, c("Density", "Age", "Weight", "Height", "Neck", "Chest", "Abdomen", "Hip", "Thigh", "Knee", "Ankle", "Biceps", "Forearm", "Wrist", "BodyFat")], sd)
+sds
+
+# Range for numeric variables
+ranges <- sapply(body_data[, c("Density", "Age", "Weight", "Height", "Neck", "Chest", "Abdomen", "Hip", "Thigh", "Knee", "Ankle", "Biceps", "Forearm", "Wrist", "BodyFat")], function(x) diff(range(x)))
+ranges
+
+# Quartiles for numeric variables
+quartiles <- apply(body_data[, c("Density", "Age", "Weight", "Height", "Neck", "Chest", "Abdomen", "Hip", "Thigh", "Knee", "Ankle", "Biceps", "Forearm", "Wrist", "BodyFat")], 2, quantile)
+quartiles
+
 
 
